@@ -80,23 +80,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
             entity_registry_enabled_default=False,
         ),
         PrusaLinkSensorEntityDescription[PrinterInfo](
-            key="printer.temperature.bed.actual",
-            name="Actual Heatbed Temperature",
-            native_unit_of_measurement=TEMP_CELSIUS,
-            device_class=SensorDeviceClass.TEMPERATURE,
-            state_class=SensorStateClass.MEASUREMENT,
-            value_fn=lambda data: cast(float, data["temperature"]["bed"]["actual"]),
-        ),
-        PrusaLinkSensorEntityDescription[PrinterInfo](
-            key="printer.temperature.nozzle.actual",
-            name="Actual Nozzle Temperature",
-            native_unit_of_measurement=TEMP_CELSIUS,
-            device_class=SensorDeviceClass.TEMPERATURE,
-            state_class=SensorStateClass.MEASUREMENT,
-            value_fn=lambda data: cast(float, data["temperature"]["tool0"]["actual"]),
-        ),
-        PrusaLinkSensorEntityDescription[PrinterInfo](
-            key="printer.temperature.bed.target",
+            key="printer.telemetry.temp-bed.target",
             name="Target Heatbed Temperature",
             native_unit_of_measurement=TEMP_CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
@@ -105,7 +89,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
             entity_registry_enabled_default=False,
         ),
         PrusaLinkSensorEntityDescription[PrinterInfo](
-            key="printer.temperature.nozzle.target",
+            key="printer.telemetry.temp-nozzle.target",
             name="Target Nozzle Temperature",
             native_unit_of_measurement=TEMP_CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
