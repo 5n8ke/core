@@ -63,7 +63,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterInfo](
             key="printer.telemetry.temp-bed",
-            name="Heatbed",
+            name="Heatbed temperature",
             native_unit_of_measurement=TEMP_CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -72,7 +72,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterInfo](
             key="printer.telemetry.temp-nozzle",
-            name="Nozzle Temperature",
+            name="Nozzle temperature",
             native_unit_of_measurement=TEMP_CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -81,7 +81,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterInfo](
             key="printer.telemetry.temp-bed.target",
-            name="Target Heatbed Temperature",
+            name="Target heatbed temperature",
             native_unit_of_measurement=TEMP_CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -90,7 +90,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterInfo](
             key="printer.telemetry.temp-nozzle.target",
-            name="Target Nozzle Temperature",
+            name="Target nozzle temperature",
             native_unit_of_measurement=TEMP_CELSIUS,
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
@@ -108,7 +108,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[PrinterInfo](
             key="printer.telemetry.print-speed",
-            name="Print Speed",
+            name="Print speed",
             native_unit_of_measurement=PERCENTAGE,
             value_fn=lambda data: cast(float, data["telemetry"]["print-speed"]),
         ),
@@ -136,7 +136,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[JobInfo](
             key="job.start",
-            name="Print Start",
+            name="Print start",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=ignore_variance(
                 lambda data: (
@@ -148,7 +148,7 @@ SENSORS: dict[str, tuple[PrusaLinkSensorEntityDescription, ...]] = {
         ),
         PrusaLinkSensorEntityDescription[JobInfo](
             key="job.finish",
-            name="Print Finish",
+            name="Print finish",
             device_class=SensorDeviceClass.TIMESTAMP,
             value_fn=ignore_variance(
                 lambda data: (
